@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Please Login to Smash Kids:</h2>
+    <h3>(Must be SuperUser, please check with site admin - planning to add regular users soon)</h3>
+    {% if form.errors %}
+        <p>Your username and password didn't match, try again please</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {% form.as_p %}
+        <input type="submit" class="btn btn-primary" value="Login">
+        <input type="hidden" name="next" value="{{next}}">
+    </form>
+</div>
+{% endblock %}
