@@ -12,17 +12,45 @@
 
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif|PT+Serif" rel="stylesheet">
     </head>
-    <body>
+    <body class="loader">
         <nav class="navbar navbar-nav-default techfont custom-navbar">
             <div class="container">
-                <ul>
+                <ul class="nav navbar-nav">
                     <li> <a class="navbar-brand bigbrand" href="{% url 'post_list' %}"> <img src="https://fontmeme.com/permalink/190228/d667be2a41cc6682ee9fd89844b886ad.png" alt=""> </a> </li>
                     <li> <a href="{% url 'about' %}">About</a> </li>
                     <li> <a href="www.github.com/BeardedSwitchDragon/SmashKidsBlog"></a> Github </li>
                 </ul>
 
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li> <a href="{% url 'post_new' %}"></a> New Post </li>
+                    <li> <a href="{% url 'post_draft_list' %}"></a> Drafts </li>
+                    <li> <a href="{% url 'logout' %}"></a> Log Out </li>
+
+                    <li> <a>Welcome: {{ user.username }}</a> </li>
+                    {% endif %}
+
+                    {% else %}
+                    <li> <a class="nav navbar-right" href="{% url 'login' %}"> <span class="glypthicon glyphicon-user"></span> </a> </li>
+                </ul>
+
+
+
             </div>
 
         </nav>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="blog_posts">
+                        {% block content %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </body>
 </html>
