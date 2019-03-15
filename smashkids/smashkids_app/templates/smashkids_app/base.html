@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{% static "css/blog.css" %}">
+        <link rel="stylesheet" href="{% static "css/smashkids_app.css" %}">
 
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif|PT+Serif" rel="stylesheet">
     </head>
@@ -16,23 +16,20 @@
         <nav class="navbar navbar-nav-default techfont custom-navbar">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li> <a class="navbar-brand bigbrand" href="{% url 'post_list' %}"> <img src="https://fontmeme.com/permalink/190228/d667be2a41cc6682ee9fd89844b886ad.png" alt=""> </a> </li>
+                    <li> <a href="{% url 'post_list' %}"><img class="logo" src="https://fontmeme.com/permalink/190315/3904662827a6d17501523ef1d32d9b20.png" alt="super-smash-bros-font" border="0"></a></li>
                     <li> <a href="{% url 'about' %}">About</a> </li>
-                    <li> <a href="www.github.com/BeardedSwitchDragon/SmashKidsBlog"></a> Github </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="https://www.github.com/BeardedSwitchDragon/SmashKidsBlog">Github</a></li>
                     {% if user.is_authenticated %}
-                    <li> <a href="{% url 'post_new' %}"></a> New Post </li>
-                    <li> <a href="{% url 'post_draft_list' %}"></a> Drafts </li>
-                    <li> <a href="{% url 'logout' %}"></a> Log Out </li>
+                    <li> <a href="{% url 'post_new' %}">New Post</a></li>
+                    <li> <a href="{% url 'post_draft_list' %}">Drafts</a></li>
+                    <li> <a href="{% url 'logout' %}">Log Out</a></li>
 
                     <li> <a>Welcome: {{ user.username }}</a> </li>
+                    {% else %}
+                    <li> <a class="nav navbar-right" href=" {% url 'login' %} ">Login</a> </li>
                     {% endif %}
 
-                    {% else %}
-                    <li> <a class="nav navbar-right" href="{% url 'login' %}"> <span class="glypthicon glyphicon-user"></span> </a> </li>
-                </ul>
+                    <li> <a class="nav navbar-right" href="{% url 'login' %}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
 
 
 

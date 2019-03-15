@@ -1,12 +1,12 @@
-{% extends "blog/base.html" %}
+{% extends "smashkids_app/base.html" %}
 
 {% block content %}
     <div class="centerstage">
-        {% for  in post_list  %}
+        {% for post in post_list  %}
             <div class="post">
                 <h1> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </h1>
                 <div class="date">
-                    <p>Published one: {{post.published|date:"D M Y"}}</p>
+                    <p>Published on: {{post.published|date:"D M Y"}}</p>
                 </div>
                 <a href="{% url 'post_detail' pk=post.pk %}">{{ post.approve_comments.count }} comments</a>
             </div>

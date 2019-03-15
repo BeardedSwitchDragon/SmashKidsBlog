@@ -9,6 +9,11 @@
     /* just in case logo doesn't work */
 }
 
+.logo {
+    width: 278px;
+    height: 43px;
+}
+
 .centerstane {
     margin-left: auto;
     margin-right: auto;
