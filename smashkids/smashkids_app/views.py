@@ -36,6 +36,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Post
 
+
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("post_list")
     model = Post
@@ -59,7 +60,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('smashkids_app:post_detail', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, "smashkids_app/comment_form.html", {"form": form})

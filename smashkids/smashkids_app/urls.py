@@ -13,5 +13,6 @@ urlpatterns = [
     path("post/<int:pk>/approve/",views.comment_approve, name="comment_approve"),
     path("comment/<int:pk>/remove/", views.comment_remove, name="comment_remove"),
     path("post/<int:pk>/publish", views.post_publish, name="post_publish"),
+    # path("settings", views.SmashSettings, name="settings")
 
 ]
